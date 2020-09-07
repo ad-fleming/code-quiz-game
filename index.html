@@ -14,37 +14,37 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light justify-content-between navEl mb-4">
-            <span class="navbar-text navbarSpan" id="highScoreElement">
+            <span class="navbar-text navbarSpan" id="highScoreEl">
               High Score: 
             </span>
-            <span class="navbar-text navbarSpan" id="timerElement">
+            <span class="navbar-text navbarSpan" id="timerEl">
                 Time:
             </span>
           </nav>
 
         <main>
             <div class="container card w-50 pt-3" id="cardEl">
-                <h1 id="headingMain card-title mb-2" class="text-center" id="pageTitleEl">This is the coding quiz</h1>
-                <h3 id= "subHeadingMain" class="text-center mb-5" id="questionDisplayEl" > Try to answer these as much as you can. Any incorrect answers will lead to losing time
+                <h1 class="headingMain card-title mb-2 text-center" id="pageTitleEl">This is the coding quiz</h1>
+                <h3 class="text-center mb-5" id="questionDisplayEl" > Try to answer these as much as you can. Any incorrect answers will lead to losing time
                 </h3>
             <div class="container m-auto">
                 <div class= "row py-1 mb-2 d-flex justify-content-center">
-                    <button type="button" class="btn btn-dark" id="timerStart">Begin Quiz</button>
+                    <button type="button" class="btn btn-dark" id="beginQuizBtn">Begin Quiz</button>
                 </div>
-                <div class= "row py-1 mb-2 answerButton" id="answer1">
+                <div class= "row py-1 mb-2 answerBtn" id="answer1">
                     <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer1">I am a button</button>
                 </div>
-                <div class= "row py-1 mb-2 answerButton" id="answer2">
+                <div class= "row py-1 mb-2 answerBtn" id="answer2">
                     <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer2">I am a button</button>
                 </div>
-                <div class= "row py-1 mb-2 answerButton" id="answer3">
+                <div class= "row py-1 mb-2 answerBtn" id="answer3">
                     <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer3">I am a button</button>
                 </div>
-                <div class= "row py-1 mb-2 answerButton" id="answer4">
+                <div class= "row py-1 mb-2 answerBtn" id="answer4">
                     <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer4">I am a button</button>
                 </div>
                 <div class="hideMe line mt-2 mb-2" id="lineId"> </div>
-                <h5 class="hideMe" id="answerDisplay ml-0 mt-2 mb-2">You're wrong</h5>
+                <h5 class="hideMe ml-0 mt-2 mb-2" id="resultText" >You're wrong</h5>
             </div>
             </div>
     
