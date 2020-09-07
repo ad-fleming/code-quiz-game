@@ -51,6 +51,7 @@ var gamePageArray = [
         answers: ["answer 1", "answer 2", "answer 3"],
         correctAnswer: "correct answer"  
     }
+    
 ]
 
 // Add event listener to the beginQuizBtn to start timer
@@ -107,4 +108,6 @@ function showButtons(){
     answer4.classList.remove("hideMe");
 }
 
+// Write a function for when the var currentPage > 4 to display the High Score Page
+function
 
