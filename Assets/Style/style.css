@@ -1,3 +1,14 @@
-h1 {
-    color: green;
+#highScoreElement, #timerElement {
+    color:black;
 }
+
+#lineId {
+    height: 2px;
+    width: 100%;
+    background-color: black;
+}
+
+.hideMe {
+    display: none;
+}
+
