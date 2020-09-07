@@ -2,6 +2,7 @@
 var highScoreEl = document.getElementById("highScoreEl");
 var timerEl = document.getElementById("timerEl");
 var cardContainerEl = document.getElementById("cardEl");
+var buttonContainerEl = document.getElementById("buttonContainer");
 var pageTitleEl = document.getElementById("pageTitleEl");
 var questionDisplayEl = document.getElementById("questionDisplayEl");
 var beginQuizBtn = document.getElementById("beginQuizBtn");
@@ -14,6 +15,9 @@ var lineEl = document.getElementById("lineId");
 var resultText = document.getElementById("resultText");
 var timerCount = 100;
 var currentPage = 0;
+var playerScore = 0;
+
+
 
 var gamePageArray = [
     {
@@ -24,7 +28,7 @@ var gamePageArray = [
       title: "Question 1",
       question: "Is this question 1?",
       answers: ["answer 1", "answer 2", "answer 3"],
-      correctAnswer: "correct answer"  
+      correctAnswer: "correct answer"
     },
     {
         page: 2,
@@ -53,6 +57,7 @@ var gamePageArray = [
 beginQuizBtn.addEventListener("click", function(event){
     setTimer();
     pageChange();
+    answerCheck();
     
 });
 
@@ -72,11 +77,7 @@ if(timerCount === 0){
 
 function pageChange () {
     currentPage ++;
-    beginQuizBtn.classList.add("hideMe");
-    answer1.classList.remove("hideMe");
-    answer2.classList.remove("hideMe");
-    answer3.classList.remove("hideMe");
-    answer4.classList.remove("hideMe");
+    showButtons();
     pageTitleEl.textContent = gamePageArray[currentPage].title;
     questionDisplayEl.textContent = gamePageArray[currentPage].question;
 
@@ -85,6 +86,25 @@ function pageChange () {
     answer2.textContent = gamePageArray[currentPage].answers[0];
     answer3.textContent = gamePageArray[currentPage].correctAnswer;
     answer4.textContent = gamePageArray[currentPage].answers[1];
-    
 }
+
+function answerCheck(){
+    buttonContainerEl.addEventListener("click", function(event){
+        event.stopPropagation();
+        if(event.target.matches("button") && event.target.textContent === gamePageArray[currentPage].correctAnswer){
+            pageChange();
+        }else{
+            timerCount = timerCount -10;
+        }
+    })
+}
+
+function showButtons(){
+    beginQuizBtn.classList.add("hideMe");
+    answer1.classList.remove("hideMe");
+    answer2.classList.remove("hideMe");
+    answer3.classList.remove("hideMe");
+    answer4.classList.remove("hideMe");
+}
+
 
