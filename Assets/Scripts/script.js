@@ -28,30 +28,30 @@ var gamePageArray = [
       title: "Question 1",
       question: "Is this question 1?",
       answers: ["answer 1", "answer 2", "answer 3"],
-      correctAnswer: "correct answer"
+      correctAnswer: "correct answer",
     },
     {
         page: 2,
         title: "Question 2",
         question: "Is this question 2?",
         answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer"  
+        correctAnswer: "correct answer",
+        
     },
     {
         page: 3,
         title: "Question 3",
         question: "Is this question 3?",
         answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer"  
+        correctAnswer: "correct answer",
     },
     {
         page: 4,
         title: "Question 4",
         question: "Is this question 4?",
         answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer"  
+        correctAnswer: "correct answer",
     }
-    
 ]
 
 // Add event listener to the beginQuizBtn to start timer
@@ -76,19 +76,17 @@ if(timerCount === 0){
 }, 1000);
 }
 
-function pageChange () {
+// Define a function to change the page
+
+function pageChange() {
     currentPage ++;
     showButtons();
     pageTitleEl.textContent = gamePageArray[currentPage].title;
     questionDisplayEl.textContent = gamePageArray[currentPage].question;
-
-    // I want to build a randomizer here
-    answer1.textContent = gamePageArray[currentPage].answers[2];
-    answer2.textContent = gamePageArray[currentPage].answers[0];
-    answer3.textContent = gamePageArray[currentPage].correctAnswer;
-    answer4.textContent = gamePageArray[currentPage].answers[1];
+    renderAnswers();
+    
 }
-
+// Define a function to check answers
 function answerCheck(){
     buttonContainerEl.addEventListener("click", function(event){
         event.stopPropagation();
@@ -107,7 +105,44 @@ function showButtons(){
     answer3.classList.remove("hideMe");
     answer4.classList.remove("hideMe");
 }
+function showResult(){
+    if(event.target.textContent === gamePageArray[currentPage].correctAnswer){
+        resultText.textContent = "Correct"
+    }else{resultText.textContent = "Incorrect"
+    }
+
+    lineEl.classList.remove("hideMe");
+    resultText.classList.remove("hideMe");
+}
+function hideResult(){
+    lineEl.classList.add("hideMe");
+    resultText.classList.add("hideMe");
+}
 
 // Write a function for when the var currentPage > 4 to display the High Score Page
-function
+
+
+function renderAnswers(){
+    if(currentPage === 1){
+        answer1.textContent = gamePageArray[currentPage].answers[2];
+        answer2.textContent = gamePageArray[currentPage].answers[0];
+        answer3.textContent = gamePageArray[currentPage].correctAnswer;
+        answer4.textContent = gamePageArray[currentPage].answers[1];  
+    }else if (currentPage === 2){
+        answer1.textContent = gamePageArray[currentPage].answers[1];
+        answer2.textContent = gamePageArray[currentPage].answers[2];
+        answer3.textContent = gamePageArray[currentPage].answers[0];
+        answer4.textContent = gamePageArray[currentPage].correctAnswer;
+    }else if( currentPage === 3){
+        answer1.textContent = gamePageArray[currentPage].correctAnswer;
+        answer2.textContent = gamePageArray[currentPage].answers[2];
+        answer3.textContent = gamePageArray[currentPage].answers[1];
+        answer4.textContent = gamePageArray[currentPage].answers[0];
+    }else if (currentPage === 4){
+            answer1.textContent = gamePageArray[currentPage].answer[2];
+            answer2.textContent = gamePageArray[currentPage].correctAnswer;
+            answer3.textContent = gamePageArray[currentPage].answers[0];
+            answer4.textContent = gamePageArray[currentPage].answers[1];
+    }
+}
 
