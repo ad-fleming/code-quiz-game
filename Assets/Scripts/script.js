@@ -29,6 +29,7 @@ var gamePageArray = [
       question: "Is this question 1?",
       answers: ["answer 1", "answer 2", "answer 3"],
       correctAnswer: "correct answer",
+      correct: false
     },
     {
         page: 2,
@@ -36,6 +37,7 @@ var gamePageArray = [
         question: "Is this question 2?",
         answers: ["answer 1", "answer 2", "answer 3"],
         correctAnswer: "correct answer",
+        correct: false
         
     },
     {
@@ -44,6 +46,7 @@ var gamePageArray = [
         question: "Is this question 3?",
         answers: ["answer 1", "answer 2", "answer 3"],
         correctAnswer: "correct answer",
+        correct: false
     },
     {
         page: 4,
@@ -51,13 +54,14 @@ var gamePageArray = [
         question: "Is this question 4?",
         answers: ["answer 1", "answer 2", "answer 3"],
         correctAnswer: "correct answer",
+        correct: false
     }
 ]
 
 // Add event listener to the beginQuizBtn to start timer
 beginQuizBtn.addEventListener("click", function(event){
     setTimer();
-    pageChange();
+    startGame();
     answerCheck();
     
 });
@@ -67,7 +71,7 @@ function setTimer(){
 timeInterval = setInterval(() => {
     timerCount--;
 
-if(timerCount === 0){
+if(timerCount < 1){
     clearInterval(timeInterval);
     timerEl.textContent = "Time's up!"
 }else{
@@ -78,12 +82,15 @@ if(timerCount === 0){
 
 // Define a function to change the page
 
-function pageChange() {
-    currentPage ++;
+function startGame() {
+    changePage();
     showButtons();
-    pageTitleEl.textContent = gamePageArray[currentPage].title;
-    questionDisplayEl.textContent = gamePageArray[currentPage].question;
-    renderAnswers();
+}
+function changePage(){
+    if(currentPage < 5){
+     currentPage++;
+    renderPage();   
+    }
     
 }
 // Define a function to check answers
@@ -91,9 +98,13 @@ function answerCheck(){
     buttonContainerEl.addEventListener("click", function(event){
         event.stopPropagation();
         if(event.target.matches("button") && event.target.textContent === gamePageArray[currentPage].correctAnswer){
-            pageChange();
-        }else{
+            gamePageArray[currentPage].correct = true;
+            resultText.textContent = "Correct!"
+            showResult();
+            changePage();
+        }else if(event.target.textContent != gamePageArray[currentPage].correctAnswer){
             timerCount = timerCount -10;
+            resultText.textContent ="Incorrect!"
         }
     })
 }
@@ -106,11 +117,6 @@ function showButtons(){
     answer4.classList.remove("hideMe");
 }
 function showResult(){
-    if(event.target.textContent === gamePageArray[currentPage].correctAnswer){
-        resultText.textContent = "Correct"
-    }else{resultText.textContent = "Incorrect"
-    }
-
     lineEl.classList.remove("hideMe");
     resultText.classList.remove("hideMe");
 }
@@ -121,28 +127,37 @@ function hideResult(){
 
 // Write a function for when the var currentPage > 4 to display the High Score Page
 
-
-function renderAnswers(){
-    if(currentPage === 1){
+// Function renders answers (this should be optimized so that it's not tied to the actual page)
+function renderPage(page){
+    var page = currentPage
+    if(page === 1){
+        pageTitleEl.textContent = gamePageArray[currentPage].title;
+        questionDisplayEl.textContent = gamePageArray[currentPage].question;
         answer1.textContent = gamePageArray[currentPage].answers[2];
         answer2.textContent = gamePageArray[currentPage].answers[0];
         answer3.textContent = gamePageArray[currentPage].correctAnswer;
         answer4.textContent = gamePageArray[currentPage].answers[1];  
-    }else if (currentPage === 2){
+    }else if (page === 2){
+        pageTitleEl.textContent = gamePageArray[currentPage].title;
+        questionDisplayEl.textContent = gamePageArray[currentPage].question;
         answer1.textContent = gamePageArray[currentPage].answers[1];
         answer2.textContent = gamePageArray[currentPage].answers[2];
         answer3.textContent = gamePageArray[currentPage].answers[0];
         answer4.textContent = gamePageArray[currentPage].correctAnswer;
-    }else if( currentPage === 3){
+    }else if( page === 3){
+        pageTitleEl.textContent = gamePageArray[currentPage].title;
+        questionDisplayEl.textContent = gamePageArray[currentPage].question;
         answer1.textContent = gamePageArray[currentPage].correctAnswer;
         answer2.textContent = gamePageArray[currentPage].answers[2];
         answer3.textContent = gamePageArray[currentPage].answers[1];
         answer4.textContent = gamePageArray[currentPage].answers[0];
-    }else if (currentPage === 4){
-            answer1.textContent = gamePageArray[currentPage].answer[2];
-            answer2.textContent = gamePageArray[currentPage].correctAnswer;
-            answer3.textContent = gamePageArray[currentPage].answers[0];
-            answer4.textContent = gamePageArray[currentPage].answers[1];
+    }else if (page === 4){
+        pageTitleEl.textContent = gamePageArray[currentPage].title;
+        questionDisplayEl.textContent = gamePageArray[currentPage].question;
+        answer1.textContent = gamePageArray[currentPage].answers[2];
+        answer2.textContent = gamePageArray[currentPage].correctAnswer;
+        answer3.textContent = gamePageArray[currentPage].answers[0];
+        answer4.textContent = gamePageArray[currentPage].answers[1];
     }
 }
 
