@@ -17,14 +17,16 @@ var answer4 = document.getElementById("answer4");
 var lineEl = document.getElementById("lineId");
 var resultText = document.getElementById("resultText");
 var currentScoreEl = document.getElementById("currentScoreEl");
+var initialsCol = document.getElementById("initialsCol");
+var highScoreCol = document.getElementById("highScoreCol");
 var currentScore = 0;
 var timerCount = 100;
 var currentPage = 0;
 var playerScore = 0;
 
 var submissionDetails = {
-    initials: "",
-    highScore: " "
+    initials:[],
+    highScore:[] 
 }
 
 
@@ -67,7 +69,7 @@ var gamePageArray = [
 // Add event listener to the beginQuizBtn to start timer
 beginQuizBtn.addEventListener("click", function(event){
     setTimer();
-    startGame();
+    renderPage1();
 });
 
 // Define a setTimer function which is triggered on a click event of the beginQuizBtn
@@ -84,10 +86,7 @@ if(timerCount < 1){
 }, 1000);
 }
 
-function startGame() {
-    renderPage1();
-    
-}
+
 
 // ==================================================================
 
@@ -203,11 +202,29 @@ answer4.addEventListener("click", function(){
     }
 })
 
+// push inputs into submissionDetails Object and store in local storage
 submitButton.addEventListener("click", function(event){
     event.preventDefault();
-
+    var highScore = currentScore;
+    submissionDetails.highScore.push(highScore);
+    submissionDetails.initials.push(initialsInput.value)
+    localStorage.setItem('testObject', JSON.stringify(submissionDetails));
+    highScorePage();
 })
 
+function highScorePage(){
+    // TODO: update highScore page with initals and high score
+    window.location.href = "highscore.html";
+    localStorage.getItem('testObject', parse(submissionDetails))
+    console.log(submissionDetails);
+    var winnerName = document.createElement("h5");
+    winnerName.textContent = submissionDetails.initials;
+    initialsCol.appendChild(winnerName);
+    var winnerScore = document.createElement("h5")
+    winnerScore.textContent = submissionDetails.highScore;
+    highScoreCol.appendChild(winnerScore)
+
+}
 
 
 
