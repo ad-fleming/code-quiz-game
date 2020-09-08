@@ -22,6 +22,13 @@ var timerCount = 100;
 var currentPage = 0;
 var playerScore = 0;
 
+var submissionDetails = {
+    initials: "",
+    highScore: " "
+}
+
+
+
 // ---------Object array that holds question and answer content
 // -----------------------------------------------------------------------------
 var gamePageArray = [
@@ -85,8 +92,9 @@ function startGame() {
 // ==================================================================
 
 function updateScore(){
-    var newScore = (currentScore + 100) * (100 - timerCount);
-    currentScoreEl.textContent = "Current Score: " + newScore;
+    var newScore = (currentScore + 100) + (timerCount *2);
+    currentScore = currentScore + newScore;
+    currentScoreEl.textContent = "Current Score: " + currentScore;
 }
 
 
@@ -189,14 +197,16 @@ answer4.addEventListener("click", function(){
     if(answer4.textContent !== gamePageArray[1].correctAnswer){
         timerCount = timerCount - 10;
     }else if(answer4.textContent === gamePageArray[1].correctAnswer){
-        resultText.textContent = "Yep!"
+        resultText.textContent = "Yep"
         updateScore();
         renderPage3();
     }
 })
 
+submitButton.addEventListener("click", function(event){
+    event.preventDefault();
 
-
+})
 
 
 
