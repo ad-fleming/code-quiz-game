@@ -24,11 +24,9 @@ var timerCount = 100;
 var currentPage = 0;
 var playerScore = 0;
 
-var submissionDetails = {
-    initials:[],
-    highScore:[] 
-}
+var submissionDetails = [
 
+]
 
 
 // ---------Object array that holds question and answer content
@@ -204,27 +202,33 @@ answer4.addEventListener("click", function(){
 
 // push inputs into submissionDetails Object and store in local storage
 submitButton.addEventListener("click", function(event){
-    event.preventDefault();
-    var highScore = currentScore;
-    submissionDetails.highScore.push(highScore);
-    submissionDetails.initials.push(initialsInput.value)
+    var sessionScore = currentScore;
+    // submissionDetails.sessionScore.push(sessionScore);
+    submissionDetails.push(
+        {
+            initials: initialsInput.value,
+            score: sessionScore
+        }
+        )
     localStorage.setItem('testObject', JSON.stringify(submissionDetails));
-    highScorePage();
+
 })
 
-function highScorePage(){
-    // TODO: update highScore page with initals and high score
-    window.location.href = "highscore.html";
-    localStorage.getItem('testObject', parse(submissionDetails))
-    console.log(submissionDetails);
-    var winnerName = document.createElement("h5");
-    winnerName.textContent = submissionDetails.initials;
-    initialsCol.appendChild(winnerName);
-    var winnerScore = document.createElement("h5")
-    winnerScore.textContent = submissionDetails.highScore;
-    highScoreCol.appendChild(winnerScore)
+// TODO: Create a conditional based on the window.location to control which functions are run
 
-}
+
+// function highScorePage(){
+//     // TODO: update highScore page with initials and high score
+//     localStorage.getItem('testObject', parse(submissionDetails));
+//     console.log(submissionDetails);
+//     var winnerName = document.createElement("h5");
+//     winnerName.textContent = submissionDetails.initials;
+//     initialsCol.appendChild(winnerName);
+//     var winnerScore = document.createElement("h5")
+//     winnerScore.textContent = submissionDetails.highScore;
+//     highScoreCol.appendChild(winnerScore)
+
+// }
 
 
 
