@@ -256,7 +256,7 @@ function retrieveResults(){
 // ================ rendering results========================
 function renderHighScores() {
     // Clear todoList element and update todoCountSpan
-  
+    initialsInput.classList.add("hideMe");
     // Render a new H5 for each Name and High Score
     for (var i = 0; i < submissionDetails.length; i++) {
       var quizzer = document.createElement("h5");
