@@ -35,31 +35,31 @@ var gamePageArray = [
     {
       page: 1,
       title: "Question 1",
-      question: "Is this question 1?",
-      answers: ["answer 1", "answer 2", "answer 3"],
-      correctAnswer: "correct answer",
+      question: "Commonly used data types DO NOT include:",
+      answers: ["Strings", "Booleans", "Numbers"],
+      correctAnswer: "Alerts",
     },
     {
         page: 2,
         title: "Question 2",
-        question: "Is this question 2?",
-        answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer",
+        question: "The condition in an if/else statement is enclosed within ______.",
+        answers: ["Brackets", "Curly Brackets", "Quotes"],
+        correctAnswer: "Parentheses",
         
     },
     {
         page: 3,
         title: "Question 3",
-        question: "Is this question 3?",
-        answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer",
+        question: "Arrays in JavaScript can be used to store ______.",
+        answers: ["Numbers and Strings", "Booleans", "Other Arrays"],
+        correctAnswer: "All of the Above",
     },
     {
         page: 4,
         title: "Question 4",
-        question: "Is this question 4?",
-        answers: ["answer 1", "answer 2", "answer 3"],
-        correctAnswer: "correct answer",
+        question: "String values must be enclosed within _____ when being assigned to variables",
+        answers: ["Commas", "Curly Brackets", "Square Brackets"],
+        correctAnswer: "Quotes",
     }
 ]
 
