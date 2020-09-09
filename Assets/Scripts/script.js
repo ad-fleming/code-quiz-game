@@ -157,7 +157,6 @@ function renderPage5(){
     answer4.classList.add("hideMe");
     initialsInput.classList.remove("hideMe");
     submitButton.classList.remove("hideMe");
-
 }
 
 answer1.addEventListener("click", function(){
@@ -200,13 +199,20 @@ answer4.addEventListener("click", function(){
     }
 })
 
+retrieveResults();
 // push inputs into submissionDetails Object and store in local storage
 submitButton.addEventListener("click", function(event){
     event.preventDefault();
-    retrieveResults();
+    submissionDetails.push(
+        {
+            initials: initialsInput.value,
+            score: currentScore
+        }
+        );
     storeResults();
     
     renderPage6();
+
 });
 
 function renderPage6(){
@@ -229,14 +235,7 @@ function renderPage6(){
 // ==================== function for storing info================
 
 function storeResults (){
-    var recordScore = currentScore;
     // submissionDetails.sessionScore.push(sessionScore);
-    submissionDetails.push(
-        {
-            initials: initialsInput.value,
-            score: recordScore
-        }
-        );
     localStorage.setItem('playerRecord', JSON.stringify(submissionDetails));
 }
 
@@ -244,8 +243,9 @@ function storeResults (){
 function retrieveResults(){
     var storedScores = JSON.parse(localStorage.getItem("playerRecord"));
     if(storedScores !== null){
-        storedScores.push(submissionDetails);
+      submissionDetails = storedScores  
     }
+    ;
     console.log(storedScores);
     renderHighScores();
 };
@@ -260,7 +260,7 @@ function renderHighScores() {
     for (var i = 0; i < submissionDetails.length; i++) {
       var quizzer = document.createElement("h5");
       quizzer.setAttribute("style", "font-weight: 400; text-decoration: underline; margin-bottom: 5px;");
-      quizzer.textContent = `${submissionDetails[i].initials}: ${submissionDetails[i].score}`
+      quizzer.textContent = submissionDetails[i].initials + " " + submissionDetails[i].score
       initialsCol.appendChild(quizzer);
       
     }
