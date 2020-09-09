@@ -7,7 +7,6 @@ var pageTitleEl = document.getElementById("pageTitleEl");
 var questionDisplayEl = document.getElementById("questionDisplayEl");
 var beginQuizBtn = document.getElementById("beginQuizBtn");
 var potentialAnswer = document.getElementsByClassName("potentialAnswer");
-var highScoreForm = document.getElementById("highScoreForm");
 var initialsInput = document.getElementById("initialsInput");
 var submitButton = document.getElementById("submitButton");
 var answer1 = document.getElementById("answer1");
@@ -17,6 +16,7 @@ var answer4 = document.getElementById("answer4");
 var lineEl = document.getElementById("lineId");
 var resultText = document.getElementById("resultText");
 var currentScoreEl = document.getElementById("currentScoreEl");
+var highScoreContainer = document.getElementById("highScoreContainer");
 var initialsCol = document.getElementById("initialsCol");
 var highScoreCol = document.getElementById("highScoreCol");
 var currentScore = 0;
@@ -202,17 +202,73 @@ answer4.addEventListener("click", function(){
 
 // push inputs into submissionDetails Object and store in local storage
 submitButton.addEventListener("click", function(event){
-    var sessionScore = currentScore;
+    event.preventDefault();
+    retrieveResults();
+    storeResults();
+    
+    renderPage6();
+});
+
+function renderPage6(){
+    if(currentPage = 6){
+        pageTitleEl.textContent = "High Scores";
+        questionDisplayEl.classList.add("hideMe");
+        submitButton.classList.add("hideMe");
+        answer1.classList.add("hideMe");
+        answer2.classList.add("hideMe");
+        answer3.classList.add("hideMe");
+        answer4.classList.add("hideMe");
+        resultText.classList.add("hideMe");
+        highScoreContainer.classList.remove("hideMe");
+       
+
+    }
+};
+
+// TODO:EVERYTHING BELOW IS TRYING TO STORE RESULTS, PULL RESULTS AND HIGH SCORE PAGE (DELETE TO HERE IF ISSUES)
+// ==================== function for storing info================
+
+function storeResults (){
+    var recordScore = currentScore;
     // submissionDetails.sessionScore.push(sessionScore);
     submissionDetails.push(
         {
             initials: initialsInput.value,
-            score: sessionScore
+            score: recordScore
         }
-        )
-    localStorage.setItem('testObject', JSON.stringify(submissionDetails));
+        );
+    localStorage.setItem('playerRecord', JSON.stringify(submissionDetails));
+}
 
-})
+// retrieve scores from storage
+function retrieveResults(){
+    var storedScores = JSON.parse(localStorage.getItem("playerRecord"));
+    if(storedScores !== null){
+        storedScores.push(submissionDetails);
+    }
+    console.log(storedScores);
+    renderHighScores();
+};
+
+
+
+// ================ rendering results========================
+function renderHighScores() {
+    // Clear todoList element and update todoCountSpan
+  
+    // Render a new H5 for each Name and High Score
+    for (var i = 0; i < submissionDetails.length; i++) {
+      var quizzer = document.createElement("h5");
+      quizzer.setAttribute("style", "font-weight: 400; text-decoration: underline; margin-bottom: 5px;");
+      quizzer.textContent = `${submissionDetails[i].initials}: ${submissionDetails[i].score}`
+      initialsCol.appendChild(quizzer);
+      
+    }
+  }
+
+
+
+
 
 // TODO: Create a conditional based on the window.location to control which functions are run
 
