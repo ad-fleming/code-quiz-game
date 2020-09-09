@@ -19,6 +19,7 @@ var currentScoreEl = document.getElementById("currentScoreEl");
 var highScoreContainer = document.getElementById("highScoreContainer");
 var initialsCol = document.getElementById("initialsCol");
 var highScoreCol = document.getElementById("highScoreCol");
+var resetButton = document.getElementById("resetButton");
 var currentScore = 0;
 var timerCount = 100;
 var currentPage = 0;
@@ -215,6 +216,7 @@ submitButton.addEventListener("click", function(event){
 function renderPage6(){
     if(currentPage = 6){
         pageTitleEl.textContent = "High Scores";
+        resetButton.classList.remove("hideMe");
         questionDisplayEl.classList.add("hideMe");
         submitButton.classList.add("hideMe");
         answer1.classList.add("hideMe");
@@ -266,6 +268,9 @@ function renderHighScores() {
     }
 };
 
+resetButton.addEventListener("click", function(){
+    localStorage.clear();
+})
 
 
 
