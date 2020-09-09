@@ -199,18 +199,15 @@ answer4.addEventListener("click", function(){
     }
 })
 
-retrieveResults();
 // push inputs into submissionDetails Object and store in local storage
 submitButton.addEventListener("click", function(event){
     event.preventDefault();
-    submissionDetails.push(
-        {
-            initials: initialsInput.value,
-            score: currentScore
-        }
-        );
+    
+    retrieveResults();
     storeResults();
     
+    
+    renderHighScores();
     renderPage6();
 
 });
@@ -236,6 +233,12 @@ function renderPage6(){
 
 function storeResults (){
     // submissionDetails.sessionScore.push(sessionScore);
+    submissionDetails.push(
+        {
+            initials: initialsInput.value,
+            score: currentScore
+        }
+        );
     localStorage.setItem('playerRecord', JSON.stringify(submissionDetails));
 }
 
@@ -244,10 +247,8 @@ function retrieveResults(){
     var storedScores = JSON.parse(localStorage.getItem("playerRecord"));
     if(storedScores !== null){
       submissionDetails = storedScores  
-    }
-    ;
-    console.log(storedScores);
-    renderHighScores();
+    };    
+
 };
 
 
