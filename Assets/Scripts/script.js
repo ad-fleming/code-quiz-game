@@ -226,6 +226,7 @@ function renderPage6(){
         answer4.classList.add("hideMe");
         resultText.classList.add("hideMe");
         highScoreContainer.classList.remove("hideMe");
+        
        
 
     }
