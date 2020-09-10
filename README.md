@@ -51,7 +51,7 @@ THEN I can save my initials and score
 
 ## Credits
 
-During the creating of this project, I collaborated with a number of my fellow classmates and consulted resources including, https://developer.mozilla.org - automatic!, https://stackoverflow.com, and https://w3schools.com.
+During the creating of this project, I collaborated with a number of my fellow classmates and consulted resources including, https://developer.mozilla.org, https://stackoverflow.com, and https://w3schools.com.
 
 
 
