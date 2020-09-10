@@ -79,6 +79,7 @@ timeInterval = setInterval(() => {
 if(timerCount < 1){
     clearInterval(timeInterval);
     timerEl.textContent = "Time's up!"
+    renderPage5();
 }else{
     timerEl.textContent = "Time: " + timerCount
 }
