@@ -226,12 +226,13 @@ function renderPage6(){
         answer4.classList.add("hideMe");
         resultText.classList.add("hideMe");
         highScoreContainer.classList.remove("hideMe");
+        displayhighScore();
        
 
     }
 };
 
-// TODO:EVERYTHING BELOW IS TRYING TO STORE RESULTS, PULL RESULTS AND HIGH SCORE PAGE (DELETE TO HERE IF ISSUES)
+
 // ==================== function for storing info================
 
 function storeResults (){
@@ -249,7 +250,8 @@ function storeResults (){
 function retrieveResults(){
     var storedScores = JSON.parse(localStorage.getItem("playerRecord"));
     if(storedScores !== null){
-      submissionDetails = storedScores  
+      submissionDetails = storedScores
+
     };    
 
 };
@@ -265,6 +267,7 @@ function renderHighScores() {
       var quizzer = document.createElement("h5");
       quizzer.setAttribute("style", "font-weight: 400; text-decoration: underline; margin-bottom: 5px;");
       quizzer.textContent = submissionDetails[i].initials + " " + submissionDetails[i].score
+
       initialsCol.appendChild(quizzer);
     }
 };
