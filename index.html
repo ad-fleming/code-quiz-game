@@ -11,9 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="Assets/Style/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light justify-content-between navEl mb-4">
+        <nav class="navbar justify-content-between navEl mb-4" id"navBar">
             <span class="navbar-text navbarSpan" id="highScoreEl">
               High Score: 
             </span>
@@ -31,36 +32,34 @@
                 <h3 class="text-center mb-5" id="questionDisplayEl" > Try to answer these as much as you can. Any incorrect answers will lead to losing time</h3>
                 <form class="form-inline justify-content-center highScoreForm" id="highScoreForm">
                     <input type="text" class="initialsInput hideMe" id= "initialsInput" placeholder="Initials">
-                    <button class="btn btn-dark btn-md mx-2 hideMe submitButton" type="submit" id="submitButton" role="button">Submit</button>
+                    <button class="btn btn-md mx-2 hideMe submitButton" type="submit" id="submitButton" role="button">Submit</button>
                 </form>
             <div class="container m-auto" id="buttonContainer">
                 <div class= "row py-1 mb-2 d-flex justify-content-center">
-                    <button type="button" class="btn btn-dark" id="beginQuizBtn">Begin Quiz</button>
+                    <button type="button" class="btn active" id="beginQuizBtn">Begin Quiz</button>
                 </div>
                 <div class= "row py-1 mb-2 answerBtn">
-                    <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer1">I am a button</button>
+                    <button type="button" class="btn active hideMe potentialAnswer" id="answer1">I am a button</button>
                 </div>
                 <div class= "row py-1 mb-2 answerBtn">
-                    <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer2">I am a button</button>
+                    <button type="button" class="btn active hideMe potentialAnswer" id="answer2">I am a button</button>
                 </div>
                 <div class= "row py-1 mb-2 answerBtn">
-                    <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer3">I am a button</button>
+                    <button type="button" class="btn active hideMe potentialAnswer" id="answer3">I am a button</button>
                 </div>
                 <div class= "row py-1 mb-2 answerBtn">
-                    <button type="button" class="btn btn-dark hideMe potentialAnswer" id="answer4">I am a button</button>
+                    <button type="button" class="btn active hideMe potentialAnswer" id="answer4">I am a button</button>
                 </div>
                 <div class="hideMe line mt-2 mb-2" id="lineId"> </div>
                 <h5 class="hideMe ml-0 mt-2 mb-2" id="resultText" > </h5>
             </div>
             <div class="container card col-10 mb-2 hideMe" id="highScoreContainer">  
-                <div class="container justify-content-center m-auto">
                     <div class= "row card-subtitle py-1 mb-2 d-flex justify-content-center">
                     <div class="row card-body d-flex justify-content-center">
                         <div class="col mt-0 pt-1 text-center" id="initialsCol"></div>
                     </div>
                     </div>
-                    <button class="btn btn-dark outline-none mb-2 p-1 justify-content-center" id="resetButton">Reset Scores</button>
-                </div>
+                    <button class="btn mb-2 p-1 justify-content-center" id="resetButton">Reset Scores</button>
             </div>
     
         </main>

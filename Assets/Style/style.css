@@ -1,3 +1,44 @@
+body{
+background-image: linear-gradient(to top left, #C99FE1, #FAF7FB);
+min-height: 100vh;
+color:whitesmoke;
+font-family: 'PT Sans Caption', sans-serif;
+}
+
+button{
+    outline: 1px solid #feac5e;
+    color: whitesmoke !important;
+}
+
+button:hover{
+    outline:2px solid whitesmoke;
+    color:#feac5e !important;
+    background-color: #4bc0c8;
+}
+
+#navbar{
+    background-color#feac5e;
+}
+
+.navbarSpan{
+    color: #4bc0c8;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#cardContainerEl, #highScoreContainer {
+    background-image: linear-gradient(to bottom right, #feac5e, #c779d0, #4bc0c8 );
+    border-bottom: 2px solid #4bc0c8; 
+    border-right: 2px solid #4bc0c8; 
+    border-left: 2px solid #feac5e; 
+    border-top: 2px solid #feac5e; 
+}
+
+#highScoreContainer{
+    outline: none !important;
+    border: none !important;
+}
+
 #highScoreElement, #timerElement {
     color:black;
 }
