@@ -35,14 +35,8 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## Images
+![Start Page](Assets/Images/quiz-start.png)
 
-![Quiz Start Page](Quiz Start Page.png)
-
-![Changed Page](Changed Page.png)
-
-![Quiz Complete Page](Quiz Complete Page.png)
-
-![High Score page.png](High Score)
 
 
 
