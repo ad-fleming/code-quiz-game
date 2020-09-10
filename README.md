@@ -36,19 +36,13 @@ THEN I can save my initials and score
 
 ## Images
 
-![Image of Starting Page]
-(Assets/Images/Quiz Start Page.png)
+![Quiz Start Page](Quiz Start Page.png)
 
-![Image of Changed Page]
-(Assets/Images/Changed Page.png)
+![Changed Page](Changed Page.png)
 
-![Image of Completion Page]
-(Assets/Images/Quiz Complete Page.png)
+![Quiz Complete Page](Quiz Complete Page.png)
 
-![High Score]
-(Assets/Images/High Score page.png)
-
-
+![High Score page.png](High Score)
 
 
 
