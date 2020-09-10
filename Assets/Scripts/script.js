@@ -265,6 +265,7 @@ function renderHighScores() {
       quizzer.setAttribute("style", "font-weight: 400; text-decoration: underline; margin-bottom: 5px;");
       quizzer.textContent = submissionDetails[i].initials + " " + submissionDetails[i].score
       initialsCol.appendChild(quizzer);
+      highScoreEl.textContent = Math.max(submissionDetails.score);
     }
 };
 
