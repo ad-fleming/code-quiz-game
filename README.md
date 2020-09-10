@@ -35,7 +35,23 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## Images
+
+### Starting Page
 ![Start Page](Assets/Images/quiz-start.png)
+
+### Dynamically Displayed Page
+![Changed Page](Assets/Images/changed-page.png)
+
+### Dynamically Displayed Final Page
+![Quiz Completion Page](Assets/Images/quiz-complete.png)
+
+### Dynamically Displayed Final Page
+![High Score Page](Assets/Images/high-score.png)
+
+
+## Credits
+
+During the creating of this project, I collaborated with a number of my fellow classmates and consulted resources including, https://developer.mozilla.org - automatic!, https://stackoverflow.com, and https://w3schools.com.
 
 
 
